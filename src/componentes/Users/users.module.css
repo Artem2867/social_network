@@ -1,0 +1,15 @@
+.icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px
+}
+.user {
+    display: flex;
+    margin: 10px;
+}
+.rightBlock {
+    margin-right: 10px
+}
+.btn button {
+    background: red;
+}

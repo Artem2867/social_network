@@ -1,0 +1,23 @@
+.profile {
+    position: relative;
+    background-color: green;
+    width: 100%;
+}
+.img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.ava {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.ava img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+

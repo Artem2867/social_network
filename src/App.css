@@ -1,38 +1,450 @@
-.App {
-  text-align: center;
+.app-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template: 60px 1fr/ 2fr 10fr;
+    align-items: center;
+    justify-items: center;
+}
+.content {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    margin-top: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+
+
+
+/* 
+#sectionPrev .contextual-links-region {
+    position: static;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section#sectionDescrComp {
+    height: 720px;
+}
+#sectionDescrComp .bd-container-inner {
+    position: static;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#sectionDescrComp .views-row-1 .group-left .field-name-field-descr-fon .field-item.even img {
+    position: absolute;
+    width: 100%;
+    top: 420px;
+    left: 0;
+    z-index: -1;
+}
+#sectionDescrComp .ds-3col-equal.node.node-description.node-teaser.view-mode-teaser.clearfix {
+    position: static;
+}
+#sectionDescrComp .group-middle .field.field-name-field-descr-img, #sectionDescrComp .group-middle .field.field-name-field-descr-img-2 {
+    width: 442px;
+    height: 483px;
+}
+#sectionDescrComp .group-middle img {
+    width: 100% !important;
+    height: 483px !important;
+}
+#sectionDescrComp .group-middle {
+    position: absolute;
+    left: 5%;
+}
+#sectionDescrComp .group-middle .field.field-name-field-descr-img-2.field-type-image.field-label-hidden {
+    position: absolute;
+    top: 115px;
+    left: 273px;
+}
+#sectionDescrComp .group-right .field-name-field-descr p {
+    font-family: 'Gilroy-Bold';
+    font-size: 22px;
+    line-height: 202.5%;
+    color: #3A3A3A;
+}
+#sectionDescrComp .group-right {
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    right: 50px;
+    top: 15.7%;
+}
+#sectionDescrComp .group-left .field-item.odd img {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+section#sectionDescrComp {
+    height: 720px;
+    background: linear-gradient(180deg, #FFFFFF 27%, rgba(255, 255, 255, 0.8) 100%);
 }
 
-.App-link {
-  color: #61dafb;
+section#sectionProduction {
+    background: linear-gradient(180deg, #FFFFFF -25%, rgba(255, 255, 255, 0) 100%);
+}
+#sectionProduction .bd-container-inner {
+    max-width: 100%;
+}
+#sectionProduction .bd-drupalregion-30 {
+    margin: 0;
+}
+#sectionProduction .view-content .views-row.views-row-1, #sectionProduction .view-content .views-row.views-row-2 {
+    width: 100%;
+    height: 210px;
+    margin-bottom: 83px;
+    position: relative;
+}
+#sectionProduction .view-content .views-row img {
+    width: 100% !important;
+    height: 210px !important;
+    object-fit: cover;
+}
+#sectionProduction .view-content .field.field-name-field-product-link.field-type-text-with-summary.field-label-hidden {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+}
+#sectionProduction .view-content a {
+    font-family: 'Gilroy-Regular';
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+#sectionProduction .view-content .field-name-field-product-link .field-item.even p:nth-child(3) {
+    display: none;
+}
+section#sectionNewDev {
+    height: 450px;
+    background: linear-gradient(180deg, #FFFFFF 40%, rgba(255, 255, 255, 0.7) 100%);
+}
+#sectionNewDev .view-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sectionNewDev .view-content .views-row {
+    width: 321px;
+    height: 325px;
+    position: relative;
+}
+#sectionNewDev .view-content .views-row .field.field-name-field-newdev-descr.field-type-text-with-summary.field-label-hidden {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+#sectionNewDev .view-content .views-row img {
+    width: 100%;
+    height: 325px;
+}
+#sectionNewDev .view-content .views-row a {
+    font-family: 'Gilroy-Bold';
+    font-size: 14px;
+    line-height: 144%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+section#sectionAdven {
+    background: linear-gradient(180deg, #FFFFFF -230%, rgba(255, 255, 255, 0.6) 100%);
+}
+#sectionAdven .bd-container-inner {
+    max-width: 100%;
+    height: 880px;
+}
+#sectionAdven .bd-drupalregion-38 {
+    width: 1200px;
+    margin: 0 auto;
+}
+#sectionAdven .group-left img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    left: 0;
+    top: -35%;
+    height: 1064px;
+}
+#sectionAdven .group-middle {
+    width: 900px;
+    height: 645px;
+    background: rgba(97, 69, 43, 0.79);
+    position: absolute;
+    left: 0;
+    bottom: 14%;
+    z-index: 1;
+}
+#sectionAdven .group-middle .field-item.even {
+    width: 495px;
+    height: 395px;
+    margin: 50px 0 0 400px;
+}
+#sectionAdven .group-middle p {
+    font-family: 'Gilroy-Regular';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+}
+#sectionAdven .group-right img {
+    width: 1146px;
+    height: 698px;
+}
+#sectionAdven .group-right {
+    width: 60%;
+    position: absolute;
+    right: -15%;
+    z-index: 0;
+    top: 10%;
+}
+#sectionAdven .group-middle p {
+    position: relative;
+}
+#sectionAdven .group-middle p::before {
+    content: "";
+    background: #FFFFFF;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    border-radius: 50px;
+    top: 5px;
+    left: -20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#sectionDocs .views-row img {
+    width: 344px;
+    height: 471px;
 }
+#sectionDocs .view-content .views-row .group-right a {
+    font-family: 'Gilroy-Regular';
+    font-size: 24px;
+    line-height: 57px;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+#sectionDocs .bd-drupalregion-42 {
+    width: 1200px;
+    margin: 0 auto;
+}
+#sectionDocs .bd-container-inner {
+    max-width: 100%;
+}
+section#sectionDocs {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    height: 600px;
+}
+#sectionDocs .views-row .field-name-field-doc-fon img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 589px;
+    z-index: -1;
+}
+#sectionDocs .group-right {
+    margin-top: 150px;
+}
+
+
+#sectionGallery .bd-layoutbox-4 .field-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sectionGallery .bd-container-inner img {
+    width: 309px;
+    height: 142px;
+    border: none;
+}
+#sectionGallery .bd-container-inner .media-gallery-media .media-gallery-item {
+    border: none;
+}
+#sectionGallery .view-footer {
+    text-align: center;
+}
+
+
+#sectionContacts .bd-container-inner {
+    max-width: 100%;
+}
+#sectionContacts .bd-drupalregion-50 {
+    margin: 0;
+}
+#sectionContacts iframe {
+    width: 100%;
+    height: 250px;
+}
+
+.region.region-hmenu-5 {
+    background: #FFFFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.region-hmenu-5 nav#block-menu-menu-footermenu {
+    width: 1200px;
+    margin: 0 auto;
+}
+#block-menu-menu-footermenu ul.bd-menu-39.nav.nav-pills.navbar-left.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#block-menu-menu-footermenu .bd-menu-39 .bd-menuitem-33 a {
+    font-family: 'Gilroy-Regular';
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    background: none;
+}
+
+
+#sectionFooter .bd-container-inner.bd-margins.clearfix {
+    max-width: 1200px !important;
+}
+#sectionFooter .bd-container-inner {
+    max-width: 1200px;
+}
+#sectionFooter .views-row-1 .ds-3col-equal.node.node-footer.node-teaser.view-mode-teaser.clearfix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sectionFooter .ds-3col-equal > .group-middle {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+#sectionFooter .ds-3col-equal > .group-right {
+    width: 33%;
+    float: right;
+    text-align: end;
+}
+#sectionFooter .views-row-1 .group-middle p {
+    font-family: 'Gilroy-Regular';
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+#sectionFooter .group-left .field-name-field-footer-tell a {
+    font-family: 'Gilroy-Regular';
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+#sectionFooter .group-left .field-name-field-footer-mail a {
+    font-family: 'Gilroy-Regular';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+#sectionFooter .views-row-1 p {
+    margin: 0;
+}
+
+
+@media (max-width: 1300px) {
+    #sectionDescrComp .group-middle {
+        left: 0%;
+    }
+    #sectionDescrComp .group-middle .field.field-name-field-descr-img-2.field-type-image.field-label-hidden {
+        position: absolute;
+        top: 115px;
+        left: 50%;
+    }
+}
+@media (max-width: 1200px) {
+    .region-hmenu-3 nav#block-system-main-menu {
+        width: 980px;
+    }
+    #sectionPrev .group-right .field-name-field-prev-descr p {
+        font-size: 23px;
+    }
+    #sectionDescrComp .group-middle img {
+        width: 267px !important;
+        height: 300px !important;
+    }
+    #sectionDescrComp .group-middle .field.field-name-field-descr-img-2.field-type-image.field-label-hidden {
+        top: 80px;
+    }
+    #sectionDescrComp .group-right {
+        right: 0px;
+    }
+    #sectionDescrComp .group-left .field-item.odd img {
+        height: 850px;
+    }
+    #sectionNewDev .view-content .views-row img {
+        width: 90%;
+        height: 270px;
+    }
+    #sectionNewDev .view-content .views-row .field.field-name-field-newdev-descr.field-type-text-with-summary.field-label-hidden {
+        bottom: 60px;
+        left: 10px;
+    }
+    #sectionNewDev .view-content .views-row a {
+        font-family: 'Gilroy-Bold';
+        font-size: 12px;
+        line-height: 144%;
+        letter-spacing: 0.05em;
+        color: #FFFFFF;
+    }
+    #sectionAdven .bd-drupalregion-38 {
+        width: 990px;
+    }
+    #sectionAdven .group-middle .field-item.even {
+        width: 427px;
+        margin: 50px 0 0 170px;
+    }
+    #sectionAdven .group-middle {
+        width: 600px;
+    }
+    #sectionAdven p.adve_list_item {
+        margin-bottom: 40px;
+    }
+    .region-hmenu-5 nav#block-menu-menu-footermenu {
+        width: 990px;
+    }
+    #sectionFooter .ds-3col-equal > .group-middle {
+        width: 30%;
+    }
+}
+/* 
+<p><a href="#">Сертификат от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 20.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 12.01.2021&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 21.01.2019&nbsp;</a></p>
+
+<p><a href="#">Презентация от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Презентация от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Презентация от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Презентация от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Приказ от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Приказ от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Приказ от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Приказ от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 21.01.2020&nbsp;</a></p>
+
+<p><a href="#">Сертификат от 21.01.2020&nbsp;</a></p> */ 
+

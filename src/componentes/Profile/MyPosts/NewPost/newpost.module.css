@@ -1,0 +1,13 @@
+.title {
+    font-size: 30px;
+}
+
+.btn {
+    background-color: red;
+    color: white;
+}
+
+.input {
+    width: 50%;
+    height: 100px;
+}

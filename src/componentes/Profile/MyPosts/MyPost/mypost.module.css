@@ -1,0 +1,23 @@
+.ava img {
+    width: 30px;
+    height: 30px;
+}
+
+.ava {
+    display: inline-block;
+}
+
+.text {
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.heart img{
+    width: 20px;
+    height: 20px;
+}
+
+.heart {
+    cursor: pointer;
+}
