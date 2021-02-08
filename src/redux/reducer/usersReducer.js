@@ -1,3 +1,4 @@
+import { UsersApi } from "../../api/authUsersApi";
 const FOLLOWED = 'FOLLOWED';
 const UNFOLLOWED = 'UNFOLLOWED';
 const GET_USERS = 'GET_USERS';
@@ -68,6 +69,45 @@ export const getUsers = (users) => {return {type: GET_USERS, users: users}}
 
 export const getMoreUsers = (page) => {return {type: GETMOREUSERS, page}}
 
+export const getUsersThunk = () => { return (dispatch) => {
+        UsersApi.getUsersApi().then(response => {
+            dispatch(getUsers(response))
+        })
+    }
+}
+export const getMoreUsersThunk = () => {
+    return (dispatch) => {
+        const page = usersState.page + 1
+        dispatch(getMoreUsers(page))
+        UsersApi.getMoreUsers(page).then(response => {
+            dispatch(getUsers(response))
+        })
+    }
+}
+export const getFollowUsersThunk = (id) => {
+    return (dispatch) => {
+        UsersApi.getFollowUsers(id)
+                    .then(response => {
+                        dispatch(followedUser(response, id))
+                    })
+    }
+}
+export const followUserThunk = (id) => {
+    return (dispatch) => {
+        UsersApi.followUser(id)
+                .then(response => {
+                    dispatch(getFollowUsersThunk(id))
+                })
+    }
+}
+export const unfollowUserThunk = (id) => {
+    return (dispatch) => {
+        UsersApi.unfollowUser(id)
+                .then(response => {
+                    dispatch(getFollowUsersThunk(id))
+                })
+    }
+}
 
 
 export default usersReducer;

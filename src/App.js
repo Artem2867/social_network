@@ -1,6 +1,5 @@
-// import Header from "./componentes/Header/header";
+
 import Navbar from "./componentes/Navbar/navbar";
-// import Profile from "./componentes/Profile/profile";
 import Music from "./componentes/Music/music";
 import News from "./componentes/News/news";
 import DialogsConteiner from "./componentes/Dialogs/dialogConteiner";
