@@ -1,3 +1,5 @@
+import { ProfileApi } from "../../api/authUsersApi";
+
 const ADDNEWPOST = 'ADD-NEW-POST';
 const TEXTNEWPOST = 'TEXT-NEW-POST';
 const GETPROFILEINFO = 'GET_PROFILE_INFO'
@@ -82,13 +84,13 @@ const profileReducer = (state = profilePage, action) => {
     }
 }
 
-export const addNewPostActionCreater = () => {
+export const addNewPost = () => {
     return {
         type: ADDNEWPOST
     }
 };
 
-export const textNewPostActionCreater = (text) => {
+export const textNewPost = (text) => {
    return  {
        type: TEXTNEWPOST,
        text: text,
@@ -98,6 +100,14 @@ export const getProfileInfo = (data) => {
     return {
         type: GETPROFILEINFO,
         data
+    }
+}
+export const getProfileInfoThunk = (userId) => {
+    return (dispatch) => {
+        ProfileApi.getProfileInfo(userId) 
+                    .then (responce => {
+                        dispatch(getProfileInfo(responce))
+                    })
     }
 }
 

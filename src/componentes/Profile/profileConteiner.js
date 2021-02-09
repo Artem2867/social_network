@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getProfileInfo } from '../../redux/reducer/profileReducer';
+import { getProfileInfo, getProfileInfoThunk } from '../../redux/reducer/profileReducer';
 import Profile from './profile'
 
 
@@ -17,6 +17,6 @@ const mapStateToProps = (state) => {
 
 
 
-const ProfileConteiner = connect(mapStateToProps, {getProfileInfo}) (WithUrlComponent)
+const ProfileConteiner = connect(mapStateToProps, {getProfileInfo, getProfileInfoThunk}) (WithUrlComponent)
 
 export default ProfileConteiner;

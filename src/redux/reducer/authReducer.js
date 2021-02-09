@@ -1,3 +1,5 @@
+import { HeaderApi } from "../../api/authUsersApi"
+
 const GETAUTHME = 'GET_AUTH_ME'
 
 const authState = {
@@ -30,6 +32,15 @@ export const getAuthMe = (data, resultCode) => {
         type: GETAUTHME,
         data,
         resultCode
+    }
+}
+
+export const getAuthMeThunk = () => {
+    return (dispatch) => {
+        HeaderApi.getAuthMe()
+                    .then(response => {
+                        dispatch(getAuthMe(response.data, response.resultCode))
+                    })
     }
 }
 

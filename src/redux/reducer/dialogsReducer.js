@@ -47,13 +47,12 @@ const dialogsReducer = (state = dialogsPage, action) => {
     }
 }
 
-export const sendNewMessageActionCreater = () => {
+export const sendNewMessage = () => {
     return {
         type: SENDNEWMESSAGE
     }
 }
-export const textNewMessageActionCreater = (text) => {
-    debugger;
+export const textNewMessage = (text) => {
     return {
         type: TEXTNEWMASSEGE,
         message:  text

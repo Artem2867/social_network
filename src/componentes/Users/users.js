@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import userIcon from '../../assets/image/users.jpg'
 import style from './users.module.css'
-// import * as axios from 'axios'
 
 
 

@@ -9,7 +9,8 @@ const Profile = (props) => {
             <ProfileInfoApi 
                 profileInfo={props.profileInfo}
                 userId={props.match.params.userId}
-                getProfileInfo={props.getProfileInfo}/>
+                getProfileInfo={props.getProfileInfo}
+                getProfileInfoThunk={props.getProfileInfoThunk}/>
             <MyPostsConteiner/>
         </div>
     )

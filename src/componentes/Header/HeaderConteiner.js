@@ -1,8 +1,7 @@
 import React from 'react';
-import * as axios from 'axios'
 import { connect } from 'react-redux';
 import Header from './header'
-import { getAuthMe } from '../../redux/reducer/authReducer';
+import { getAuthMe, getAuthMeThunk } from '../../redux/reducer/authReducer';
 
 
 
@@ -10,13 +9,7 @@ import { getAuthMe } from '../../redux/reducer/authReducer';
 class HeaderApi extends React.Component {
 
     componentDidMount() {
-        axios
-            .get('https://social-network.samuraijs.com/api/1.0/auth/me',{
-                withCredentials: true
-            })
-            .then(response => {
-                this.props.getAuthMe(response.data.data, response.data.resultCode)
-            })                
+        this.props.getAuthMeThunk()              
     }   
 
 
@@ -39,4 +32,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getAuthMe}) (HeaderApi)
+export default connect(mapStateToProps, {getAuthMe, getAuthMeThunk}) (HeaderApi)

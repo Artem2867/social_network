@@ -5,12 +5,15 @@ import { followedUser, unfollowedUser, getUsers,
          getFollowUsersThunk, followUserThunk, unfollowUserThunk } from "../../redux/reducer/usersReducer";
 import Users from "./users";
 import Preloader from '../Preloader/preloader';
+import authRedirectHoc from '../../HOC/authHOC';
+import { compose } from 'redux';
 
 
 
 
 
 class UsersConteinerApi extends React.Component {
+
 
     componentDidMount() {
         this.props.getUsersThunk()
@@ -54,15 +57,16 @@ const mapStateToProps = (state) => {
         users: state.usersPage.users,
         isLoading: state.usersPage.isLoading,
         page: state.usersPage.page,
-        totalCount: state.usersPage.totalCount
+        totalCount: state.usersPage.totalCount,
     }
 
 }
 
 
-const UsersConteiner = connect(mapStateToProps, 
-    {followedUser, unfollowedUser, getUsers, getMoreUsers, 
-    getUsersThunk, getMoreUsersThunk, getFollowUsersThunk,
-    followUserThunk, unfollowUserThunk} ) (UsersConteinerApi)
-
-export default UsersConteiner;
+export default compose(
+    connect(mapStateToProps, 
+        {followedUser, unfollowedUser, getUsers, getMoreUsers, 
+        getUsersThunk, getMoreUsersThunk, getFollowUsersThunk,
+        followUserThunk, unfollowUserThunk} ),
+    authRedirectHoc
+) (UsersConteinerApi);

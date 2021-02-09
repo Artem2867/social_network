@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import style from "./header.module.css";
 
 
@@ -16,9 +17,11 @@ const Header = (props) => {
              <div>
                  {props.login}
              </div>
-             <div>
-                 {props.resultCode === 0? 'log out': 'login'}
-             </div>
+             <NavLink to="/login">
+                <div className={style.login}>
+                    {props.resultCode === 0? 'log out': 'login'}
+                </div>
+             </NavLink>
         </div>
     )
 }
