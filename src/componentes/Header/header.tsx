@@ -2,9 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from "./header.module.css";
 
+type PropsType = {
+    id: number | null
+    login: string | null
+    email: string | null
+    resultCode: number | null
+    logOut: () => void
+}
 
 
-const Header = (props) => {
+const Header: React.FC <PropsType> = ({id, login, email, resultCode, logOut}) => {
     
     return (
         <div className={style.header}>
@@ -15,11 +22,12 @@ const Header = (props) => {
                 <h1>Our socail network</h1>
              </div>
              <div>
-                 {props.login}
+                 {login}
              </div>
              <NavLink to="/login">
                 <div className={style.login}>
-                    {props.resultCode === 0? 'log out': 'login'}
+                    {resultCode === 0? 
+                            <div onClick={logOut}>log out</div>: 'login'}
                 </div>
              </NavLink>
         </div>

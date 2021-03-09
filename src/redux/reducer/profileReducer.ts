@@ -1,15 +1,17 @@
 import { ProfileApi } from "../../api/authUsersApi";
+import { ProfilePageType, ProfileInfoType } from "../../utilits/MyType";
 
-const ADDNEWPOST = 'ADD-NEW-POST';
-const TEXTNEWPOST = 'TEXT-NEW-POST';
-const GETPROFILEINFO = 'GET_PROFILE_INFO'
+const ADDNEWPOST:string = 'ADD-NEW-POST';
+const TEXTNEWPOST:string = 'TEXT-NEW-POST';
+const GETPROFILEINFO:string = 'GET_PROFILE_INFO'
 
-
-const profilePage = {
+const profilePage: ProfilePageType = {
         ProfileInfo: {
+            aboutMe: null,
             userId: null,
             fullName: null,
-            aboutMe: null,
+            lookingForAJob: null,
+            lookingForAJobDescription: null,
             contacts: {
                 facebook: null,
                 website: null,
@@ -21,9 +23,9 @@ const profilePage = {
                 mainLink: null
             },
             photos: {
-                small: null,
-                large: null
-              }
+                small: undefined,
+                large: undefined
+            },
         },
         Myposts: [
             {id: 1, post: 'My first post',likeCount: 0},
@@ -34,32 +36,34 @@ const profilePage = {
         TextNewPost: '',
 }
 
-const profileReducer = (state = profilePage, action) => {
+const profileReducer = (state: ProfilePageType = profilePage, action: any): ProfilePageType => {
 
     switch(action.type) {
-        case 'ADD-NEW-POST': 
+        case ADDNEWPOST: 
             let TextNewPost = state.TextNewPost;
             return {
                 ...state,
                 TextNewPost: "",
                 Myposts: [...state.Myposts, {
                     id: 8,
-                    post: TextNewPost
+                    post: TextNewPost,
+                    likeCount: null
                 }]
             }
-        case 'TEXT-NEW-POST': 
+        case TEXTNEWPOST: 
             return {
                 ...state,
                 TextNewPost: action.text
             }
-        case 'GET_PROFILE_INFO': {
-            debugger;
+        case GETPROFILEINFO: {
             return {
                 ...state,
                 ProfileInfo: {...state.ProfileInfo,
+                    aboutMe: action.data.data.aboutMe, 
                     userId: action.data.data.userId,
                     fullName: action.data.data.fullName,
-                    aboutMe: action.data.data.aboutMe,
+                    lookingForAJob: action.data.data.lookingForAJob,
+                    lookingForAJobDescription: action.data.data.lookingForAJobDescription,
                     contacts: { 
                         ...state.ProfileInfo.contacts,
                         facebook: action.data.data.contacts,
@@ -84,30 +88,34 @@ const profileReducer = (state = profilePage, action) => {
     }
 }
 
-export const addNewPost = () => {
-    return {
-        type: ADDNEWPOST
-    }
-};
-
-export const textNewPost = (text) => {
-   return  {
-       type: TEXTNEWPOST,
-       text: text,
-   }
+type addNewPostActionType = {
+    type: typeof ADDNEWPOST
 }
-export const getProfileInfo = (data) => {
-    return {
+export const addNewPost = (): addNewPostActionType => ({type: ADDNEWPOST});
+
+type textNewPostActionType = {
+    type: typeof TEXTNEWPOST
+    text: string
+}
+export const textNewPost = (text:string): textNewPostActionType => ({
+       type: TEXTNEWPOST,
+       text,
+   }
+)
+
+type GetProfileInfoActionType = {
+    type: typeof GETPROFILEINFO
+    data: ProfileInfoType
+}
+export const getProfileInfo = (data:ProfileInfoType): GetProfileInfoActionType => ({
         type: GETPROFILEINFO,
         data
-    }
-}
-export const getProfileInfoThunk = (userId) => {
-    return (dispatch) => {
-        ProfileApi.getProfileInfo(userId) 
-                    .then (responce => {
-                        dispatch(getProfileInfo(responce))
-                    })
+    })
+
+export const getProfileInfoThunk = (userId:string) => {
+    return  async (dispatch:any) => {
+        let response: any  = await ProfileApi.getProfileInfo(userId) 
+        dispatch(getProfileInfo(response))
     }
 }
 

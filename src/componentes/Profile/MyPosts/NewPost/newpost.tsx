@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { FC } from 'react'
 import style from './newpost.module.css'
 
-const NewPost = (props) => {
+
+type PropsType = {
+    updateInputValue: (text: string) => void
+    addNewPost: () => void
+    inputValue: string
+}
+
+const NewPost: FC<PropsType> = ({updateInputValue, addNewPost, inputValue}) => {
    
 
-    const updateInputValue = (e) => {
+    const NewInputValue = (e: any) => {
         let inputValue = e.target.value
-        props.updateInputValue(inputValue)
+        updateInputValue(inputValue)
     }
 
-    const addNewPost = () => {
-        props.addNewPost()
+    const PushNewPost = () => {
+        addNewPost()
     }
 
 
@@ -21,12 +28,12 @@ const NewPost = (props) => {
             </div>
             <div> 
                 <textarea 
-                    onChange={updateInputValue}
+                    onChange={NewInputValue}
                     placeholder="your post..." 
                     className={style.input} 
-                    value={props.inputValue}/>
+                    value={inputValue}/>
                 <button 
-                    onClick={addNewPost}
+                    onClick={PushNewPost}
                     className={style.btn} 
                     type="submit">Send</button>
             </div>

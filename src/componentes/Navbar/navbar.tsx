@@ -2,12 +2,17 @@ import React from 'react';
 import style from  "./navbar.module.css"
 import {NavLink} from "react-router-dom";
 
-const Navbar = () => {
+type PropsType = {
+    myId: number | null
+}
+
+
+const Navbar:React.FC<PropsType> = (props) => {
     return (
         <div className={style.navbar}>
             <div className="navbar_links">
                 <div className={style.link}>
-                    <NavLink to="/profile" activeClassName={style.active}>Profile</NavLink>
+                    <NavLink to={`/profile/${props.myId}`} activeClassName={style.active}>Profile</NavLink>
                 </div>
                 <div className={style.link}>
                     <NavLink to="/dialogs" activeClassName={style.active}>Messages</NavLink>

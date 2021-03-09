@@ -1,4 +1,5 @@
-import * as axios from "axios"
+import axios, { AxiosResponse } from "axios"
+import { LoginFormDataType } from "../utilits/MyType"
 
 const instance = axios.create({
     withCredentials: true,
@@ -13,32 +14,32 @@ export const UsersApi = {
     getUsersApi()  {
         return instance
                 .get('users?count=10&page=1')
-                .then(response => {
+                .then((response: AxiosResponse) => {
                     return response.data
                 })
     },
-    getMoreUsers(page) {
+    getMoreUsers(page: number) {
         return instance 
                 .get(`users?count=10&page=${page}`)
                 .then(response => {
                   return  response.data
                 }) 
     },
-    getFollowUsers(id) {
+    getFollowUsers(id:number) {
         return instance     
                     .get(`follow/${id}`)
                     .then(response => {
                         return response.data
                     })
     },
-    followUser(id) {
+    followUser(id:number) {
         return instance     
                     .post(`follow/${id}`)
                     .then(response => {
                         return response
                     })
     },
-    unfollowUser(id) {
+    unfollowUser(id:number) {
         return instance
                 .delete(`follow/${id}`)
                 .then(response => {})
@@ -48,7 +49,7 @@ export const UsersApi = {
 
 
 export const ProfileApi = {
-    getProfileInfo(userId) {
+    getProfileInfo(userId:string) {
         return instance
                 .get(`profile/${userId}`)
                 .then(responce => {
@@ -63,6 +64,28 @@ export const HeaderApi = {
                 .get(`auth/me`)
                 .then(response => {
                   return response.data;
+                })
+    }
+}
+
+
+
+export const LoginApi = {
+    LogIn(formData: LoginFormDataType) {
+        const{email,password,rememberMe} = formData
+        return instance
+                .post('auth/login',{
+                    email, password, rememberMe
+                })
+                .then(response => {
+                    return response
+                })
+    },
+    LogOut() {
+        return instance
+                .post('auth/logout')
+                .then(response => {
+                    return response.data
                 })
     }
 }
