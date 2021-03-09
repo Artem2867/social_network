@@ -2,6 +2,7 @@
   "name": "my-first-spa",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://artem2867.github.io/social_network/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "tsc",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +53,7 @@
   "devDependencies": {
     "@types/react": "^17.0.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.1.0",
     "typescript": "^4.2.3"
   }
 }
